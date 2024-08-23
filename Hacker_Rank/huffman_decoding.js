@@ -58,3 +58,54 @@
 // Sample Input
 
 function processData(input) {}
+
+// Definition of the Node class for the Huffman tree
+class Node {
+  constructor(data, freq) {
+    this.data = data; // Character or NULL
+    this.freq = freq; // Frequency of the character
+    this.left = null; // Left child
+    this.right = null; // Right child
+  }
+}
+
+// Function to decode the Huffman encoded string
+function decode_huff(root, s) {
+  let decodedString = "";
+  let currentNode = root;
+
+  for (let i = 0; i < s.length; i++) {
+    // Traverse the tree according to the encoded string
+    if (s[i] === "0") {
+      currentNode = currentNode.left;
+    } else {
+      currentNode = currentNode.right;
+    }
+
+    // If a leaf node is reached
+    if (!currentNode.left && !currentNode.right) {
+      decodedString += currentNode.data; // Append the character to the decoded string
+      currentNode = root; // Reset to the root for the next character
+    }
+  }
+
+  console.log(decodedString); // Print the decoded string
+}
+
+// Example usage
+// Constructing a simple Huffman Tree for demonstration
+let root = new Node(null, 0);
+root.left = new Node("A", 5);
+root.right = new Node(null, 7);
+root.right.left = new Node("R", 3);
+root.right.right = new Node(null, 4);
+root.right.right.left = new Node("C", 2);
+root.right.right.right = new Node("D", 2);
+root.right.right.right.left = new Node("B", 1);
+root.right.right.right.right = new Node("B", 1);
+
+// Huffman encoded string example
+let encodedString = "01111001100011010111100";
+
+// Decode the string
+decode_huff(root, encodedString);

@@ -39,3 +39,117 @@
 function mergeLists(head1, head2) {
   linkedList = [];
 }
+
+class SinglyLinkedListNode {
+  constructor(data) {
+    this.data = data;
+    this.next = null;
+  }
+}
+
+function mergeLists(head1, head2) {
+  // Create a dummy node to form the base of the new merged list
+  let dummy = new SinglyLinkedListNode(0);
+  let tail = dummy;
+
+  // Traverse both lists and append the smaller value to the merged list
+  while (head1 !== null && head2 !== null) {
+    if (head1.data <= head2.data) {
+      tail.next = head1;
+      head1 = head1.next;
+    } else {
+      tail.next = head2;
+      head2 = head2.next;
+    }
+    tail = tail.next;
+  }
+
+  // If there are remaining nodes in either list, append them to the merged list
+  if (head1 !== null) {
+    tail.next = head1;
+  }
+  if (head2 !== null) {
+    tail.next = head2;
+  }
+
+  // Return the next node of dummy, which is the actual head of the merged list
+  return dummy.next;
+}
+
+// Function to print the linked list
+function printList(head) {
+  let result = [];
+  while (head !== null) {
+    result.push(head.data);
+    head = head.next;
+  }
+  console.log(result.join(" -> ") + " -> null");
+}
+
+// Example usage:
+// List A: 1 -> 3 -> 7 -> null
+// List B: 1 -> 2 -> null
+let headA = new SinglyLinkedListNode(1);
+headA.next = new SinglyLinkedListNode(3);
+headA.next.next = new SinglyLinkedListNode(7);
+
+let headB = new SinglyLinkedListNode(1);
+headB.next = new SinglyLinkedListNode(2);
+
+// Merging the lists
+let merged_head = mergeLists(headA, headB);
+
+// Print the merged list
+printList(merged_head);
+
+// class SinglyLinkedListNode:
+//     def __init__(self, data):
+//         self.data = data
+//         self.next = None
+
+// def mergeLists(head1, head2):
+//     # Create a dummy node to form the base of the new merged list
+//     dummy = SinglyLinkedListNode(0)
+//     tail = dummy
+
+//     # Traverse both lists and append the smaller value to the merged list
+//     while head1 and head2:
+//         if head1.data <= head2.data:
+//             tail.next = head1
+//             head1 = head1.next
+//         else:
+//             tail.next = head2
+//             head2 = head2.next
+//         tail = tail.next
+
+//     # If there are remaining nodes in either list, append them to the merged list
+//     if head1:
+//         tail.next = head1
+//     if head2:
+//         tail.next = head2
+
+//     # Return the next node of dummy, which is the actual head of the merged list
+//     return dummy.next
+
+// # Function to print the linked list
+// def printList(head):
+//     while head:
+//         print(head.data, end=" -> ")
+//         head = head.next
+//     print("null")
+
+// # Example usage:
+// # List A: 1 -> 3 -> 7 -> null
+// # List B: 1 -> 2 -> null
+// headA = SinglyLinkedListNode(1)
+// headA.next = SinglyLinkedListNode(3)
+// headA.next.next = SinglyLinkedListNode(7)
+
+// headB = SinglyLinkedListNode(1)
+// headB.next = SinglyLinkedListNode(2)
+
+// # Merging the lists
+// merged_head = mergeLists(headA, headB)
+
+// # Print the merged list
+// printList(merged_head)

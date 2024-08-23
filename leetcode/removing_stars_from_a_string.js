@@ -28,7 +28,6 @@
 // Output: ""
 // Explanation: The entire string is removed, so we return an empty string.
 
-
 // Constraints:
 
 // 1 <= s.length <= 10^5
@@ -39,6 +38,54 @@
  * @param {string} s
  * @return {string}
  */
-var removeStars = function(s) {
-    
+var removeStars = function (s) {};
+
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var removeStars = function (s) {
+  let stack = [];
+
+  // Traverse each character in the string
+  for (let char of s) {
+    if (char === "*") {
+      // Remove the top element (closest non-star character)
+      stack.pop();
+    } else {
+      // Add the character to the stack
+      stack.push(char);
+    }
+  }
+
+  // Join the characters in the stack to form the final string
+  return stack.join("");
 };
+
+// Example 1:
+let s1 = "leet**cod*e";
+console.log(removeStars(s1)); // Output: "lecoe"
+
+// Example 2:
+let s2 = "erase*****";
+console.log(removeStars(s2)); // Output: ""
+
+// def removeStars(s):
+//     stack = []
+
+//     for char in s:
+//         if char == '*':
+//             if stack:
+//                 stack.pop()  # Remove the closest non-star character
+//         else:
+//             stack.append(char)  # Add non-star character to the stack
+
+//     return ''.join(stack)  # Join the characters in the stack to form the final string
+
+// # Example 1:
+// s1 = "leet**cod*e"
+// print(removeStars(s1))  # Output: "lecoe"
+
+// # Example 2:
+// s2 = "erase*****"
+// print(removeStars(s2))  # Output: ""

@@ -1,10 +1,7 @@
-const { trusted } = require("mongoose");
-
 // A bracket is considered to be any of the following characters: (.), {,},[,or].
 //  Two brackets are considered to be a match if the opening bracket(i.e (, [, or {)
 // occurs to the left of a closing bracket (i.e., ), ],
 //      or }) of the exact same type. There are three types of matched pairs of brackets: [], {}, and ().
-
 
 //      A matching pair of brackets is not balanced if the set of brackets it encloses are not matched.
 //  For example,
@@ -64,9 +61,37 @@ function isBalanced(s) {
   // if (let i in  midLength){}
   if (leftString >= rightString) {
     return value;
-  }else{
+  } else {
     return console.error(error);
-    
   }
 }
 console.log(isBalanced);
+
+function isBalanced(s) {
+  const stack = [];
+  const bracketPairs = {
+    ")": "(",
+    "}": "{",
+    "]": "[",
+  };
+
+  for (let char of s) {
+    if (["(", "{", "["].includes(char)) {
+      // If it's an opening bracket, push it onto the stack
+      stack.push(char);
+    } else if ([")", "}", "]"].includes(char)) {
+      // If it's a closing bracket, check if it matches the last opening bracket
+      if (stack.length === 0 || stack.pop() !== bracketPairs[char]) {
+        return "NO";
+      }
+    }
+  }
+
+  // If the stack is empty, all brackets were matched correctly
+  return stack.length === 0 ? "YES" : "NO";
+}
+
+// Sample usage:
+console.log(isBalanced("{[()]}")); // Output: YES
+console.log(isBalanced("{[(])}")); // Output: NO
+console.log(isBalanced("{{[[(())]]}}")); // Output: YES

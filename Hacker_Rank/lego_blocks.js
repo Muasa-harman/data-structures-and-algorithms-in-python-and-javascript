@@ -44,3 +44,43 @@ m = 3;
 function readLine() {
   return inputString[currentLine++];
 }
+
+function legoBlocks(n, m) {
+  const MOD = 1000000007;
+
+  // Step 1: Calculate the number of ways to fill a row
+  let r_ways = new Array(m + 1).fill(0);
+  r_ways[0] = 1;
+
+  for (let i = 1; i <= m; i++) {
+    if (i >= 1) r_ways[i] = (r_ways[i] + r_ways[i - 1]) % MOD;
+    if (i >= 2) r_ways[i] = (r_ways[i] + r_ways[i - 2]) % MOD;
+    if (i >= 3) r_ways[i] = (r_ways[i] + r_ways[i - 3]) % MOD;
+    if (i >= 4) r_ways[i] = (r_ways[i] + r_ways[i - 4]) % MOD;
+  }
+
+  // Step 2: Extend to wall of height n
+  let t_ways = r_ways.map((ways) => {
+    let result = 1;
+    for (let i = 0; i < n; i++) {
+      result = (result * ways) % MOD;
+    }
+    return result;
+  });
+
+  // Step 3: Calculate valid configurations (solid walls)
+  let valid = new Array(m + 1).fill(0);
+  valid[1] = t_ways[1];
+
+  for (let i = 2; i <= m; i++) {
+    valid[i] = t_ways[i];
+    for (let j = 1; j < i; j++) {
+      valid[i] = (valid[i] - ((valid[j] * r_ways[i - j]) % MOD) + MOD) % MOD;
+    }
+  }
+
+  return valid[m];
+}
+
+// Example usage:
+console.log(legoBlocks(2, 3)); // Output: 9

@@ -6,7 +6,7 @@
 //   Note that k is guaranteed to be a positive integer.
 
 // You may assume that the input string is always valid; there are no extra white spaces,
-//  square brackets are well-formed, etc. Furthermore, you may assume that the original 
+//  square brackets are well-formed, etc. Furthermore, you may assume that the original
 //  data does not contain any digits and that digits are only for those repeat numbers, k.
 //   For example, there will not be input like 3a or 2[4].
 
@@ -25,7 +25,6 @@
 
 // Input: s = "2[abc]3[cd]ef"
 // Output: "abcabccdcdcdef"
- 
 
 // Constraints:
 // 1 <= s.length <= 30
@@ -33,39 +32,34 @@
 // s is guaranteed to be a valid input.
 // All the integers in s are in the range [1, 300].
 
-
 /**
  * @param {string} s
  * @return {string}
  */
-var decodeString = function(s) {
-    stack = []
-    current_number = 0
-    current_string = ''
-    
-    for (let  char of s){
-        if (!isNaN(char)){
-            current_number = current_number * 10 + parseInt(char, 10);
-        } else if (char === '['){
-            stack.push([current_number, current_string]);
-            current_number = 0;
-            current_string='';
-        } else if (char === ']'){
-            let [num, prevString] = stack.pop();
-            current_string = prevString + current_string.repeat(num);
-        } else {
-            current_string += char;
-        }
+var decodeString = function (s) {
+  stack = [];
+  current_number = 0;
+  current_string = "";
+
+  for (let char of s) {
+    if (!isNaN(char)) {
+      current_number = current_number * 10 + parseInt(char, 10);
+    } else if (char === "[") {
+      stack.push([current_number, current_string]);
+      current_number = 0;
+      current_string = "";
+    } else if (char === "]") {
+      let [num, prevString] = stack.pop();
+      current_string = prevString + current_string.repeat(num);
+    } else {
+      current_string += char;
     }
-    return current_string;
-
-    
+  }
+  return current_string;
 };
-console.log(decodeString("3[a]2[bc]"));      // Output: "aaabcbc"
-console.log(decodeString("3[a2[c]]"));       // Output: "accaccacc"
-console.log(decodeString("2[abc]3[cd]ef"));  // Output: "abcabccdcdcdef"
-
-
+console.log(decodeString("3[a]2[bc]")); // Output: "aaabcbc"
+console.log(decodeString("3[a2[c]]")); // Output: "accaccacc"
+console.log(decodeString("2[abc]3[cd]ef")); // Output: "abcabccdcdcdef"
 
 // To decode an encoded string in JavaScript using a similar approach as described before, we can also use a stack to manage the characters and numbers. Here's how you can implement it:
 
@@ -84,14 +78,13 @@ console.log(decodeString("2[abc]3[cd]ef"));  // Output: "abcabccdcdcdef"
 
 // After iterating through the string, currentString will contain the decoded string.
 
-
 // // python
 
 // def decodeString(s):
 //     stack = []
 //     current_num = 0
 //     current_string = ""
-    
+
 //     for char in s:
 //         if char.isdigit():
 //             current_num = current_num * 10 + int(char)
@@ -104,14 +97,13 @@ console.log(decodeString("2[abc]3[cd]ef"));  // Output: "abcabccdcdcdef"
 //             current_string = last_string + current_string * num
 //         else:
 //             current_string += char
-    
+
 //     return current_string
 
 // # Sample Inputs
 // print(decodeString("3[a]2[bc]"))       # Output: "aaabcbc"
 // print(decodeString("3[a2[c]]"))        # Output: "accaccacc"
 // print(decodeString("2[abc]3[cd]ef"))   # Output: "abcabccdcdcdef"
-
 
 // Explanation:
 
@@ -124,3 +116,64 @@ console.log(decodeString("2[abc]3[cd]ef"));  // Output: "abcabccdcdcdef"
 // If the character is a letter, we simply append it to current_string.
 // After the loop, current_string will contain the fully decoded string, which we return as the result.
 // This approach efficiently handles the decoding of nested and sequential encoded patterns, ensuring the correct output.
+
+var decodeString = function (s) {
+  let stack = [];
+  let current_number = 0;
+  let current_string = "";
+
+  for (let char of s) {
+    if (!isNaN(char)) {
+      // If the character is a number, update the current_number
+      current_number = current_number * 10 + parseInt(char, 10);
+    } else if (char === "[") {
+      // Push the current string and current number to stack, then reset them
+      stack.push([current_number, current_string]);
+      current_number = 0;
+      current_string = "";
+    } else if (char === "]") {
+      // Pop the stack, repeat the string and add it to the previous string
+      let [num, prevString] = stack.pop();
+      current_string = prevString + current_string.repeat(num);
+    } else {
+      // If it's a letter, add it to the current_string
+      current_string += char;
+    }
+  }
+
+  return current_string;
+};
+
+// Test cases
+console.log(decodeString("3[a]2[bc]")); // Output: "aaabcbc"
+console.log(decodeString("3[a2[c]]")); // Output: "accaccacc"
+console.log(decodeString("2[abc]3[cd]ef")); // Output: "abcabccdcdcdef"
+
+// def decodeString(s):
+//     stack = []
+//     current_num = 0
+//     current_string = ""
+
+//     for char in s:
+//         if char.isdigit():
+//             # If the character is a digit, update current_num
+//             current_num = current_num * 10 + int(char)
+//         elif char == '[':
+//             # Push the current string and current number to the stack, then reset them
+//             stack.append((current_string, current_num))
+//             current_string = ""
+//             current_num = 0
+//         elif char == ']':
+//             # Pop the stack, repeat the string and add it to the previous string
+//             last_string, num = stack.pop()
+//             current_string = last_string + current_string * num
+//         else:
+//             # If it's a letter, add it to the current_string
+//             current_string += char
+
+//     return current_string
+
+// # Test cases
+// print(decodeString("3[a]2[bc]"))      # Output: "aaabcbc"
+// print(decodeString("3[a2[c]]"))       # Output: "accaccacc"
+// print(decodeString("2[abc]3[cd]ef"))  # Output: "abcabccdcdcdef"

@@ -22,7 +22,7 @@
 
 // Input: asteroids = [10,2,-5]
 // Output: [10]
-// Explanation: The 2 and -5 collide resulting in -5. The 10 and -5 
+// Explanation: The 2 and -5 collide resulting in -5. The 10 and -5
 // collide resulting in 10.
 
 // Constraints:
@@ -35,42 +35,43 @@
  * @param {number[]} asteroids
  * @return {number[]}
  */
-var asteroidCollision = function(asteroids) {
-    const stack = [];
+var asteroidCollision = function (asteroids) {
+  const stack = [];
 
-    for(let asteroid of asteroids){
-        // we need a flag to check if the asteroid should be added to added to the stack
-        let alive = true;
+  for (let asteroid of asteroids) {
+    // we need a flag to check if the asteroid should be added to added to the stack
+    let alive = true;
 
-        while (alive && stack.length && stack[stack.length - 1] > 0 && asteroid < 0){
-          let top = stack.pop();
-          if (Math.abs(top) === Math.abs(asteroid)){
-            // Stack's asteroid wins, re-add it and dont add the current one
-            stack.push(top);
-            alive = false;
-          } else if (Math.abs(top)> Math.abs(asteroid)){
-            // Stack's asteroid wins, re-add it and dont add the current one
-            stack.push(top);
-            alive = false;
-          }
-        // Otherwise, continue loop and compare with next stack top
-        }
-       if (alive){
-         stack.push(asteroid);
-        }
-
+    while (
+      alive &&
+      stack.length &&
+      stack[stack.length - 1] > 0 &&
+      asteroid < 0
+    ) {
+      let top = stack.pop();
+      if (Math.abs(top) === Math.abs(asteroid)) {
+        // Stack's asteroid wins, re-add it and dont add the current one
+        stack.push(top);
+        alive = false;
+      } else if (Math.abs(top) > Math.abs(asteroid)) {
+        // Stack's asteroid wins, re-add it and dont add the current one
+        stack.push(top);
+        alive = false;
+      }
+      // Otherwise, continue loop and compare with next stack top
     }
+    if (alive) {
+      stack.push(asteroid);
+    }
+  }
 
-    return stack;
-    
+  return stack;
 };
 // Example usage:
 console.log(asteroidCollision([5, 10, -5])); // Output: [5, 10]
-console.log(asteroidCollision([8, -8]));     // Output: []
+console.log(asteroidCollision([8, -8])); // Output: []
 console.log(asteroidCollision([10, 2, -5])); // Output: [10]
-// 
-
-
+//
 
 // Explanation
 // Stack: Used to keep track of asteroids that are still in motion after potential collisions.
@@ -78,17 +79,14 @@ console.log(asteroidCollision([10, 2, -5])); // Output: [10]
 // We pop asteroids from the stack if they collide with a larger asteroid moving in the opposite direction.
 // If asteroids are of the same size, both are removed.
 // The loop ensures that multiple collisions can be handled in a single pass.
-// This algorithm efficiently handles the problem with a time complexity of 
+// This algorithm efficiently handles the problem with a time complexity of
 // 𝑂
 // (
 // 𝑛
 // )
-// O(n), where 
+// O(n), where
 // 𝑛
 // n is the number of asteroids, as each asteroid is processed at most twice (once when pushed onto the stack and once potentially when popped off).
-
-
-
 
 // To solve the asteroid collision problem, we can use a stack data structure to efficiently manage the collisions:
 
@@ -105,12 +103,10 @@ console.log(asteroidCollision([10, 2, -5])); // Output: [10]
 // If the stack's asteroid is also left-moving or the stack becomes empty, push the current asteroid onto the stack.
 // Result: After processing all asteroids, the remaining asteroids in the stack are the ones that survived.
 
-
-
 // // python
 // def asteroidCollision(asteroids):
 //     stack = []
-    
+
 //     for asteroid in asteroids:
 //         while stack and asteroid < 0 < stack[-1]:
 //             top = stack[-1]
@@ -124,14 +120,13 @@ console.log(asteroidCollision([10, 2, -5])); // Output: [10]
 //                 break
 //         else:
 //             stack.append(asteroid)
-    
+
 //     return stack
 
 // # Sample Inputs
 // print(asteroidCollision([5, 10, -5]))  # Output: [5, 10]
 // print(asteroidCollision([8, -8]))      # Output: []
 // print(asteroidCollision([10, 2, -5]))  # Output: [10]
-
 
 // The function asteroidCollision takes a list of integers asteroids as an argument.
 // We initialize an empty list stack to keep track of the asteroids that survive collisions.
@@ -143,3 +138,44 @@ console.log(asteroidCollision([10, 2, -5])); // Output: [10]
 // If the incoming asteroid is smaller (top + asteroid > 0), the incoming asteroid is destroyed.
 // If there is no collision, the current asteroid is added to the stack.
 // The function returns the stack, representing the state of the asteroids after all collisions.
+
+/**
+ * @param {number[]} asteroids
+ * @return {number[]}
+ */
+var asteroidCollision = function (asteroids) {
+  const stack = [];
+
+  for (let asteroid of asteroids) {
+    let alive = true; // Flag to check if the current asteroid should be added to the stack
+
+    while (
+      alive &&
+      stack.length &&
+      stack[stack.length - 1] > 0 &&
+      asteroid < 0
+    ) {
+      let top = stack.pop();
+      if (Math.abs(top) === Math.abs(asteroid)) {
+        // Both asteroids explode
+        alive = false;
+      } else if (Math.abs(top) > Math.abs(asteroid)) {
+        // The asteroid in the stack is larger, it survives
+        stack.push(top);
+        alive = false;
+      }
+      // Otherwise, continue checking the next asteroid in the stack
+    }
+
+    if (alive) {
+      stack.push(asteroid);
+    }
+  }
+
+  return stack;
+};
+
+// Example usage:
+console.log(asteroidCollision([5, 10, -5])); // Output: [5, 10]
+console.log(asteroidCollision([8, -8])); // Output: []
+console.log(asteroidCollision([10, 2, -5])); // Output: [10]

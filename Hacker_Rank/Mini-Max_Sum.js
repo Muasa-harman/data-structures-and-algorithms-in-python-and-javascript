@@ -76,3 +76,21 @@ readLine(arr); //Output
 // Calculating the sums:
 // The minimum sum is obtained by summing the first four numbers after sorting.
 // The maximum sum is obtained by summing the last four numbers after sorting.
+
+function miniMaxSum(arr1) {
+  // Sort the array in ascending order
+  arr.sort((a, b) => a - b);
+
+  // Calculate the minimum sum (sum of the first four numbers)
+  let minSum = arr1[0] + arr1[1] + arr1[2] + arr1[3];
+
+  // Calculate the maximum sum (sum of the last four numbers)
+  let maxSum = arr1[1] + arr1[2] + arr1[3] + arr1[4];
+
+  // Print the results
+  console.log(minSum, maxSum);
+}
+
+// Sample input
+const arr1 = [1, 3, 5, 7, 9];
+miniMaxSum(arr1); // Output: 16 24

@@ -22,4 +22,27 @@
 // @param {number} k
 // @return {number}
 
-var maxOperations = function(nums, k){};
+var maxOperations = function (nums, k) {};
+
+var maxOperations = function (nums, k) {
+  let count = 0; // Initialize the count of operations
+  let map = {}; // Initialize a hash map to store the frequencies of numbers
+
+  for (let num of nums) {
+    let complement = k - num; // Calculate the complement
+
+    // If the complement exists in the map and its frequency is greater than 0
+    if (map[complement] > 0) {
+      count++; // We found a valid pair, increment the count
+      map[complement]--; // Decrement the frequency of the complement
+    } else {
+      // If the complement doesn't exist or its frequency is 0, add the current number to the map
+      if (map[num] == null) {
+        map[num] = 0; // Initialize the frequency of the current number
+      }
+      map[num]++; // Increment the frequency of the current number
+    }
+  }
+
+  return count; // Return the total number of operations
+};

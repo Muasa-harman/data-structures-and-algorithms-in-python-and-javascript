@@ -32,7 +32,6 @@
 // Constraints
 // O < n <= arr[i] <= 100
 
-
 // Output Format
 
 // Print the following  3 lines, each to 6 decimals:
@@ -61,23 +60,23 @@
 // 'use strict';
 
 process.stdin.resume();
-process.stdin.setEncoding('utf-8');
+process.stdin.setEncoding("utf-8");
 
-let inputString = '';
+let inputString = "";
 let currentLine = 0;
 
-process.stdin.on('data', function(inputStdin) {
-    inputString += inputStdin;
+process.stdin.on("data", function (inputStdin) {
+  inputString += inputStdin;
 });
 
-process.stdin.on('end', function() {
-    inputString = inputString.split('\n');
+process.stdin.on("end", function () {
+  inputString = inputString.split("\n");
 
-    main();
+  main();
 });
 
 function readLine() {
-    return inputString[currentLine++];
+  return inputString[currentLine++];
 }
 
 /*
@@ -87,41 +86,42 @@ function readLine() {
  */
 
 function plusMinus(arr) {
-    // Initialize counters
-    let positiveCount = 0;
-    let negativeCount = 0;
-    let zeroCount = 0;
-    const totalCount = arr.length;
-    
-    // Iterate through the array and count positive, negative and zero values
-    arr.forEach(num => {
-        if (num > 0) {
-            positiveCount++;
-        } else if (num < 0) {
-            negativeCount++;
-        } else {
-            zeroCount++;
-        }
-    });
+  // Initialize counters
+  let positiveCount = 0;
+  let negativeCount = 0;
+  let zeroCount = 0;
+  const totalCount = arr.length;
 
-    // Calculate the ratios
-    const positiveRatio = (positiveCount / totalCount).toFixed(6);
-    const negativeRatio = (negativeCount / totalCount).toFixed(6);
-    const zeroRatio = (zeroCount / totalCount).toFixed(6);
-    
-    // Print the ratios
-    console.log(positiveRatio);
-    console.log(negativeRatio);
-    console.log(zeroRatio);
+  // Iterate through the array and count positive, negative and zero values
+  arr.forEach((num) => {
+    if (num > 0) {
+      positiveCount++;
+    } else if (num < 0) {
+      negativeCount++;
+    } else {
+      zeroCount++;
+    }
+  });
+
+  // Calculate the ratios
+  const positiveRatio = (positiveCount / totalCount).toFixed(6);
+  const negativeRatio = (negativeCount / totalCount).toFixed(6);
+  const zeroRatio = (zeroCount / totalCount).toFixed(6);
+
+  // Print the ratios
+  console.log(positiveRatio);
+  console.log(negativeRatio);
+  console.log(zeroRatio);
 }
 
 function main() {
-    const n = parseInt(readLine().trim(), 10);
-    const arr = readLine().replace(/\s+$/g, '').split(' ').map(arrTemp => parseInt(arrTemp, 10));
-    plusMinus(arr);
+  const n = parseInt(readLine().trim(), 10);
+  const arr = readLine()
+    .replace(/\s+$/g, "")
+    .split(" ")
+    .map((arrTemp) => parseInt(arrTemp, 10));
+  plusMinus(arr);
 }
-
-
 
 // // python
 // def plusMinus(arr):
@@ -157,7 +157,6 @@ function main() {
 // # 0.333333
 // # 0.166667
 
-
 // Explanation:
 
 // The function plusMinus takes a list of integers arr as an argument.
@@ -166,3 +165,67 @@ function main() {
 // We calculate the ratios by dividing each counter by the total number of elements.
 // We print each ratio formatted to six decimal places using formatted string literals (f"{value:.6f}").
 // This function handles the input correctly according to the provided constraints and examples.
+
+function plusMinus(arr) {
+  // Initialize counters
+  let positiveCount = 0;
+  let negativeCount = 0;
+  let zeroCount = 0;
+  const totalCount = arr.length;
+
+  // Iterate through the array and count positive, negative and zero values
+  arr.forEach((num) => {
+    if (num > 0) {
+      positiveCount++;
+    } else if (num < 0) {
+      negativeCount++;
+    } else {
+      zeroCount++;
+    }
+  });
+
+  // Calculate the ratios and format to six decimal places
+  const positiveRatio = (positiveCount / totalCount).toFixed(6);
+  const negativeRatio = (negativeCount / totalCount).toFixed(6);
+  const zeroRatio = (zeroCount / totalCount).toFixed(6);
+
+  // Print the ratios
+  console.log(positiveRatio);
+  console.log(negativeRatio);
+  console.log(zeroRatio);
+}
+
+// Example usage:
+const arr = [-4, 3, -9, 0, 4, 1];
+plusMinus(arr);
+
+// Output:
+// 0.500000
+// 0.333333
+// 0.166667
+
+// def plusMinus(arr):
+//     n = len(arr)
+//     positive_count = 0
+//     negative_count = 0
+//     zero_count = 0
+
+//     for num in arr:
+//         if num > 0:
+//             positive_count += 1
+//         elif num < 0:
+//             negative_count += 1
+//         else:
+//             zero_count += 1
+
+//     positive_ratio = positive_count / n
+//     negative_ratio = negative_count / n
+//     zero_ratio = zero_count / n
+
+//     print(f"{positive_ratio:.6f}")
+//     print(f"{negative_ratio:.6f}")
+//     print(f"{zero_ratio:.6f}")
+
+// # Example usage:
+// arr = [-4, 3, -9, 0, 4, 1]
+// plusMinus(arr)

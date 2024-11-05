@@ -9,7 +9,7 @@
 // Output: 3
 // Explanation: The substring "iii" contains 3 vowel letters
 
-// Explamation 3:
+// Explanation 3:
 
 // Input: s = "leetcode", k= 3
 // Output: 2

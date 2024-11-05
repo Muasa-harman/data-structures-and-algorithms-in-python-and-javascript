@@ -31,4 +31,4 @@ function steps(n) {
   }
 }
 
-steps(3);
+steps(5);

@@ -1,11 +1,11 @@
 // Given a binary array nums, you should delete one element from it.
 //  Return the size of the longest non-empty subarray
-// containing ony 1's in the resulting array. Return 0 if there is no such subarray.
+// containing only 1's in the resulting array. Return 0 if there is no such subarray.
 
 // E.g 1:
 // Input: nums = [1,1,0,1]
 // Output: 3
-// Explamation: After deleting the number in position 2, [1,1,1] contains
+// Explanation: After deleting the number in position 2, [1,1,1] contains
 // 3 numbers with value of 1's.
 
 // E.g 2:

@@ -1,5 +1,5 @@
 // Determine if Two String Are Close
-// Two strings are considered close if you can attain one from the otr using the follwing operations:
+// Two strings are considered close if you can attain one from the other using the following operations:
 
 // - Operation 1: Swap any two existing characters.
 // For example, abcde -> aecdb

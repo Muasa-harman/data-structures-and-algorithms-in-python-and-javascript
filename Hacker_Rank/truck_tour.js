@@ -25,7 +25,6 @@
 
 // Sample Output
 // 1
-var truck = function truckTour(petrolPumps) {};
 
 function truckTour(petrolPumps) {
   let startIndex = 0;

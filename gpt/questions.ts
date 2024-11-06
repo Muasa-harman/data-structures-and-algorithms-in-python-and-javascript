@@ -73,7 +73,7 @@ console.log(maxSubArray([-2,1,-3,4,-1,2,1,-5,4])); // Output: 6
 
 // Question 4:
 // Implement a function that checks if a given string containing only parentheses is valid.
-//  A string is considered valid if every opening parenthesis has a corresponding closing parenthesis in the correct order.
+// A string is considered valid if every opening parenthesis has a corresponding closing parenthesis in the correct order.
 // Answer: Use a stack to solve this problem.
 
 function isValid(s:string) {
@@ -117,15 +117,16 @@ console.log(isValid("(]"));     // Output: false
 // Coding: Data Structures - Stacks and Queues
 // Question 4:
 // Implement a function that checks if a given string containing only parentheses is valid.
-//  A string is considered valid if every opening parenthesis has a corresponding closing parenthesis in the correct order.
+// A string is considered valid if every opening parenthesis has a corresponding closing parenthesis in the correct order.
 // Answer: Use a stack to solve this problem.
 
 
 
 // Data Structures - Strings
 // Question 5:
-// Write a function that takes a string and returns the first non-repeating character. If all characters repeat,
-//  return null.
+// Write a function that takes a string and returns the first non-repeating character.
+// If all characters repeat,
+// return null.
 // Answer: We can use a hash map to keep track of character counts.
 
 
@@ -185,25 +186,10 @@ console.log(reverseNumber(987654321)); // Output: 123456789
 
 
 
+// Your oppositeNumber function is perfect! It simply negates the input by using the unary minus (-) operator, 
+// effectively flipping the sign of the number.
 
 
-
-
-// You said:
-// function oppositeNumber(num: number): number {
-//   return -num;
-// }
-
-// Example usage:
-console.log(oppositeNumber(5)); // Output: -5
-console.log(oppositeNumber(-7)); // Output: 7
-
-// Your oppositeNumber function is perfect! It simply negates the input by using the unary minus (-) operator, effectively flipping the sign of the number.
-
-// Here's the code again for reference:
-
-// typescript
-// Copy code
 function oppositeNumber(num: number): number {
   return -num;
 }
@@ -215,9 +201,9 @@ console.log(oppositeNumber(-7));  // Output: 7
 
 
 // It looks like you’re aiming to create a Caesar Cipher encryption function called cc_encryptor,
-//  which takes an input string (iText), an orientation (orient),
-//   and a shift amount (k). Here’s a sample implementation of the Caesar Cipher in TypeScript
-//    that handles shifting in both directions depending on the orientation (orient)
+// which takes an input string (iText), an orientation (orient),
+// and a shift amount (k). Here’s a sample implementation of the Caesar Cipher in TypeScript
+// that handles shifting in both directions depending on the orientation (orient)
 
 
 

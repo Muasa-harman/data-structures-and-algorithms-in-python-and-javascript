@@ -40,9 +40,7 @@
 // The substring starting at 9 is "barthefoo". It is the concatenation of ["bar","the","foo"].
 // The substring starting at 12 is "thefoobar". It is the concatenation of ["the","foo","bar"].
 
-var findSubstring = function (s, words) {};
-
-var findSubstring = function (s, words) {
+function findSubstring(s, words) {
   if (!s || !words || words.length === 0) return [];
 
   let wordLength = words[0].length;
@@ -78,7 +76,7 @@ var findSubstring = function (s, words) {
   }
 
   return result;
-};
+}
 
 // Example 1:
 let s1 = "barfoothefoobarman";

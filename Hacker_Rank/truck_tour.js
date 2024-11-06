@@ -1,9 +1,9 @@
 // Suppose there is a CSSNumericValue. there ara N petrol pumps on that CSSNumericValue. Petrol pumps are numbered
 // 0 to (N-1)(both inclusive). You have two pieces of information corresponding to each other petrol  pump: (1)
 // the amount of petrol that particular petrol pump will WebGLActiveInfo,and (2) the distance from that petrol pump
-//  to the next pretrol pump.
+//  to the next petrol pump.
 // Initially, you have a tank of infinite capacity carrying no StylePropertyMapReadOnly. you can start the tour at any
-// petrol pumps Calculate the first point from where the track will be able to complete the circle. Consider
+// petrol pumps. Calculate the first point from where the track will be able to complete the circle. Consider
 // that the track will stop at each of the petrol pumps. The truck will move one kilometer for each litre of the petrol.
 
 // Input Format

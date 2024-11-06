@@ -32,35 +32,6 @@
 // s is guaranteed to be a valid input.
 // All the integers in s are in the range [1, 300].
 
-/**
- * @param {string} s
- * @return {string}
- */
-var decodeString = function (s) {
-  stack = [];
-  current_number = 0;
-  current_string = "";
-
-  for (let char of s) {
-    if (!isNaN(char)) {
-      current_number = current_number * 10 + parseInt(char, 10);
-    } else if (char === "[") {
-      stack.push([current_number, current_string]);
-      current_number = 0;
-      current_string = "";
-    } else if (char === "]") {
-      let [num, prevString] = stack.pop();
-      current_string = prevString + current_string.repeat(num);
-    } else {
-      current_string += char;
-    }
-  }
-  return current_string;
-};
-console.log(decodeString("3[a]2[bc]")); // Output: "aaabcbc"
-console.log(decodeString("3[a2[c]]")); // Output: "accaccacc"
-console.log(decodeString("2[abc]3[cd]ef")); // Output: "abcabccdcdcdef"
-
 // To decode an encoded string in JavaScript using a similar approach as described before, we can also use a stack to manage the characters and numbers. Here's how you can implement it:
 
 // Initialization:
@@ -117,7 +88,7 @@ console.log(decodeString("2[abc]3[cd]ef")); // Output: "abcabccdcdcdef"
 // After the loop, current_string will contain the fully decoded string, which we return as the result.
 // This approach efficiently handles the decoding of nested and sequential encoded patterns, ensuring the correct output.
 
-var decodeString = function (s) {
+function decodeString(s) {
   let stack = [];
   let current_number = 0;
   let current_string = "";
@@ -142,7 +113,7 @@ var decodeString = function (s) {
   }
 
   return current_string;
-};
+}
 
 // Test cases
 console.log(decodeString("3[a]2[bc]")); // Output: "aaabcbc"

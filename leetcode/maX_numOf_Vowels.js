@@ -25,10 +25,9 @@
 @params {number} k
 @return {number}
 */
+function maxVowels(s, k) {}
 
-var maxVowels = function (s, k) {};
-
-var maxVowels = function (s, k) {
+function maxVowels(s, k) {
   const vowels = new Set(["a", "e", "i", "o", "u"]);
   let maxVowelCount = 0;
   let currentVowelCount = 0;
@@ -58,7 +57,7 @@ var maxVowels = function (s, k) {
   }
 
   return maxVowelCount;
-};
+}
 
 // Example usages:
 console.log(maxVowels("abciiidef", 3)); // Output: 3

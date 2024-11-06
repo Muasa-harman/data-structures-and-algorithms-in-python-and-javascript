@@ -22,7 +22,7 @@ Output: false;
 // Output: true
 // Explanation: ".*" means "zero or more (*) of any character(.)".
 
-var isMatch = function (s, p) {
+function isMatch(s, p) {
   const m = s.length;
   const n = p.length;
 
@@ -53,7 +53,7 @@ var isMatch = function (s, p) {
     }
   }
   return dp[m][n];
-};
+}
 // Example usage:
 console.log(isMatch("aa", "a")); // Output: false
 console.log(isMatch("aa", "a*")); // Output: true

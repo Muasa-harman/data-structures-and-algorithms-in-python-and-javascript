@@ -17,7 +17,7 @@
  * @param {string} word2
  * @return {boolean}
  */
-var closeStrings = function (word1, word2) {
+function closeStrings(word1, word2) {
   if (word1.length !== word2.length) {
     return false;
   }
@@ -51,7 +51,7 @@ var closeStrings = function (word1, word2) {
   count2.sort((a, b) => a - b);
 
   return count1.toString() === count2.toString();
-};
+}
 
 // Examples
 console.log(closeStrings("abc", "bca")); // Output: true
@@ -104,7 +104,7 @@ console.log(closeStrings("cabbba", "aabbss")); // Output: false
 // Check if both strings have the same frequency of characters: Use collections.Counter to get the frequency of each character in both strings. Sort these frequencies and compare them. If they are the same, the strings can be transformed into each other by swapping characters and transforming characters as needed.
 // This approach ensures that the strings are compared correctly according to the defined operations.
 
-var closeStrings = function (word1, word2) {
+function closeStrings(word1, word2) {
   // Step 1: Check if both strings have the same length
   if (word1.length !== word2.length) {
     return false;
@@ -144,7 +144,7 @@ var closeStrings = function (word1, word2) {
   count2.sort((a, b) => a - b);
 
   return count1.toString() === count2.toString();
-};
+}
 
 // Test cases
 console.log(closeStrings("abc", "bca")); // Output: true

@@ -29,11 +29,11 @@
 @return {number}
 */
 
-var longestSubarray = function (nums) {
-  const binary_array = "";
-};
+// function longestSubarray (nums) {
+//   const binary_array = "";
+// };
 
-var longestSubarray = function (nums) {
+function longestSubarray(nums) {
   let left = 0;
   let max_len = 0;
   let zero_count = 0;
@@ -58,7 +58,7 @@ var longestSubarray = function (nums) {
 
   // Return max_len, ensuring at least one element has been removed
   return max_len;
-};
+}
 
 // Example usages:
 console.log(longestSubarray([1, 1, 0, 1])); // Output: 3

@@ -47,7 +47,7 @@
  * @param {string} senate
  * @return {string}
  */
-var predictPartyVictory = function (senate) {
+function predictPartyVictory(senate) {
   let radiant = [];
   let dire = [];
 
@@ -74,7 +74,7 @@ var predictPartyVictory = function (senate) {
   }
   // The winner is determined by which queue is non-empty
   return radiant.length > 0 ? "Radiant" : "Dire";
-};
+}
 
 // Example usages
 console.log(predictPartyVictory("RD")); // Output: "Radiant"

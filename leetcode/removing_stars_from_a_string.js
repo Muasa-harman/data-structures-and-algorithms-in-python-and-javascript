@@ -38,13 +38,12 @@
  * @param {string} s
  * @return {string}
  */
-var removeStars = function (s) {};
 
 /**
  * @param {string} s
  * @return {string}
  */
-var removeStars = function (s) {
+function removeStars(s) {
   let stack = [];
 
   // Traverse each character in the string
@@ -60,7 +59,7 @@ var removeStars = function (s) {
 
   // Join the characters in the stack to form the final string
   return stack.join("");
-};
+}
 
 // Example 1:
 let s1 = "leet**cod*e";

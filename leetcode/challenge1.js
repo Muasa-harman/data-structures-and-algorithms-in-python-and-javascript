@@ -22,7 +22,9 @@
 // int arr[n]: an array of integers
 
 // Print
-// Print the ratios of positive, negative and zero values in the array. Each value should be printed on a separate line with 6 digits after the decimal. The function should not return a value.
+// Print the ratios of positive, negative and zero values in the array.
+//  Each value should be printed on a separate line with 6 digits after the decimal.
+// The function should not return a value.
 
 // Input Format
 

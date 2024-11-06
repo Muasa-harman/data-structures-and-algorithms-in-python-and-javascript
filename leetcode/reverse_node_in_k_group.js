@@ -14,15 +14,13 @@
 // Input: head = [1,2,3,4,5], k = 3
 // Output: [3,2,1,4,5]
 
-var reverseKGroup = function (head, k) {};
-
 // Definition for singly-linked list.
 function ListNode(val, next) {
   this.val = val === undefined ? 0 : val;
   this.next = next === undefined ? null : next;
 }
 
-var reverseKGroup = function (head, k) {
+function reverseKGroup(head, k) {
   // Helper function to reverse k nodes in the linked list
   function reverseLinkedList(head, k) {
     let prev = null;
@@ -73,7 +71,7 @@ var reverseKGroup = function (head, k) {
   }
 
   return dummy.next;
-};
+}
 
 // Example usage:
 

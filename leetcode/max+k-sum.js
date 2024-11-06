@@ -22,9 +22,8 @@
 // @param {number} k
 // @return {number}
 
-var maxOperations = function (nums, k) {};
-
-var maxOperations = function (nums, k) {
+// function maxOperations (nums, k) {};
+function maxOperations(nums, k) {
   let count = 0; // Initialize the count of operations
   let map = {}; // Initialize a hash map to store the frequencies of numbers
 
@@ -45,4 +44,4 @@ var maxOperations = function (nums, k) {
   }
 
   return count; // Return the total number of operations
-};
+}

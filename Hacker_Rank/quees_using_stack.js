@@ -1,5 +1,5 @@
 // A queue is an abstract datatype that maintains the order in which elements were added to it, allowing the oldest
-// elements to be reomved from the front and a new element to be added to the rear.
+// elements to be removed from the front and a new element to be added to the rear.
 // A basic queue has the following operations:
 //  . Enqueue - add a new element to the end of the queue
 //  . Dequeue - remove element from the front of the queue and return it.A
@@ -15,10 +15,6 @@
 // Each line i of the q subsequent lines contains a single query in the form described in the problem statement above
 // All  3 queries start with an integer denoting the query type but only query 1 is followed by an additional space-separated
 // value. x denoting the value to be enqueued.
-
-function processData(input) {
-  mystack = [];
-}
 
 function processData(input) {
   const commands = input.split("\n");

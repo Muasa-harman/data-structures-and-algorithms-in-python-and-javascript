@@ -1,15 +1,22 @@
+import * as readline from 'readline';
+
+const readline = require('readline');
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
 // There's a small error in the code above. JavaScript strings don't have a
 //  .reverse() method directly. To reverse a string, you'll need to convert it to an array,
 //  reverse it, and then join it back into a string. Here’s the corrected version of the function:
 
 // function reverseNumber(num: number): number {
-//     // Convert the number to a string
+//   // Convert the number to a string
 //     const numString = String(num);
     
-//     // Split the string into an array, reverse it, and join it back
+//    // Split the string into an array, reverse it, and join it back
 //     const reversedString = numString.split('').reverse().join('');
     
-//     // Parse the reversed string back to a number
+//    // Parse the reversed string back to a number
 //     const reversedNumber = parseInt(reversedString, 10);
     
 //     return reversedNumber;
@@ -65,10 +72,11 @@ console.log(maxSubArray([-2,1,-3,4,-1,2,1,-5,4])); // Output: 6
 
 
 // Question 4:
-// Implement a function that checks if a given string containing only parentheses is valid. A string is considered valid if every opening parenthesis has a corresponding closing parenthesis in the correct order.
+// Implement a function that checks if a given string containing only parentheses is valid.
+//  A string is considered valid if every opening parenthesis has a corresponding closing parenthesis in the correct order.
 // Answer: Use a stack to solve this problem.
 
-function isValid(s) {
+function isValid(s:string) {
     const stack = [];
     const map = {
         '(': ')',
@@ -108,19 +116,20 @@ console.log(isValid("(]"));     // Output: false
 
 // Coding: Data Structures - Stacks and Queues
 // Question 4:
-// Implement a function that checks if a given string containing only parentheses is valid. A string is considered valid if every opening parenthesis has a corresponding closing parenthesis in the correct order.
+// Implement a function that checks if a given string containing only parentheses is valid.
+//  A string is considered valid if every opening parenthesis has a corresponding closing parenthesis in the correct order.
 // Answer: Use a stack to solve this problem.
 
 
 
 // Data Structures - Strings
 // Question 5:
-// Write a function that takes a string and returns the first non-repeating character. If all characters repeat, return null.
+// Write a function that takes a string and returns the first non-repeating character. If all characters repeat,
+//  return null.
 // Answer: We can use a hash map to keep track of character counts.
 
-// javascript
-// Copy code
-function firstNonRepeatingCharacter(s) {
+
+function firstNonRepeatingCharacter(s: string) {
     const charCount = {};
     for (let char of s) {
         charCount[char] = (charCount[char] || 0) + 1;
@@ -142,10 +151,19 @@ console.log(firstNonRepeatingCharacter("aabbcc")); // Output: null
 
 
 // You said:
-/* AI: Certainly! You can create a function that takes in a number and returns its reverse. Here’s how you can do it: */  function reverseNumber(num: number): number {   // Convert the number to a string   const numString = String(num);   // Reverse the string   const reversedString = numString.reverse();   // Parse the reversed string back to a number   const reversedNumber = parseInt(reversedString, 10);   return reversedNumber; } // Example usage: console.log(reverseNumber(1223)); // Output: 3221 console.log(reverseNumber(987654321)); // Output: 123456789 
+/* AI: Certainly! You can create a function that takes in a number and returns its reverse. Here’s how you can do it: */ 
+// function reverseNumber(num: number):
+// number {   // Convert the number to a string   const numString = String(num);
+// Reverse the string  
+// const reversedString = numString.reverse();
+// Parse the reversed string back to a number  
+// const reversedNumber = parseInt(reversedString, 10);
+// return reversedNumber; } 
+// Example usage: console.log(reverseNumber(1223));
+// Output: 3221 console.log(reverseNumber(987654321)); // Output: 123456789 
 // There's a small error in the code above. JavaScript strings don't have a .reverse() method directly.
-//  To reverse a string, you'll need to convert it to an array, reverse it, and then join it back into a string.
-//   Here’s the corrected version of the function:
+// To reverse a string, you'll need to convert it to an array, reverse it, and then join it back into a string.
+// Here’s the corrected version of the function:
 
 
 function reverseNumber(num: number): number {
@@ -202,7 +220,6 @@ console.log(oppositeNumber(-7));  // Output: 7
 //    that handles shifting in both directions depending on the orientation (orient)
 
 
-import * as readline from 'readline';
 
 interface Input {
     str1: string;
@@ -293,11 +310,6 @@ function getMaxChars(str: string): string {
     return maxChar;
 }
 
-const readline = require('readline');
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
 
 // Read the string input
 rl.question('', (str1: string) => {

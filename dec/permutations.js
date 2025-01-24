@@ -12,3 +12,5 @@
 // E.g3
 // Input: nums = [1]
 // Output:[[1]]
+
+function permutations(nums) {}

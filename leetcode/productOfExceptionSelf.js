@@ -1,6 +1,7 @@
-// Given an integer array nums,return an array answer such that the answer[i] is equal to the product
+// Given an integer array nums,
+// return an array answer such that the answer[i] is equal to the product
 // of all the elements of nums except num[i].
-// The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit interger
+// The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer
 // You must run an algorithm that runs in a 0(n) time and without using division operations.
 
 // E.g.1:

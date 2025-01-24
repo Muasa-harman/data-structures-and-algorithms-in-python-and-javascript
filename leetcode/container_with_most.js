@@ -1,5 +1,5 @@
 // Container with most water
-// You are given interger array height of length n . There are n vertical lines drawn
+// You are given integer array height of length n . There are n vertical lines drawn
 // such that the two endpoint of the ith line are (i,0) and (i, height[i]).
 
 // Find two lines that together with the x-axis form a container, such that the container
@@ -56,7 +56,7 @@ var maxArea = function (height) {
     // update maxArea if the current area is larger
     maxArea = Math.max(maxArea, area);
 
-    // Move the pointer corresponding to the shoter line
+    // Move the pointer corresponding to the shorter line
     if (height[left] < height[height]) {
       left++;
     } else {

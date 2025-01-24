@@ -50,11 +50,11 @@ var asteroidCollision = function (asteroids) {
     ) {
       let top = stack.pop();
       if (Math.abs(top) === Math.abs(asteroid)) {
-        // Stack's asteroid wins, re-add it and dont add the current one
+        // Stack's asteroid wins, re-add it and don't add the current one
         stack.push(top);
         alive = false;
       } else if (Math.abs(top) > Math.abs(asteroid)) {
-        // Stack's asteroid wins, re-add it and dont add the current one
+        // Stack's asteroid wins, re-add it and don't add the current one
         stack.push(top);
         alive = false;
       }

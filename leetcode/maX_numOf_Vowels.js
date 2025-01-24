@@ -25,7 +25,6 @@
 @params {number} k
 @return {number}
 */
-function maxVowels(s, k) {}
 
 function maxVowels(s, k) {
   const vowels = new Set(["a", "e", "i", "o", "u"]);
@@ -43,7 +42,7 @@ function maxVowels(s, k) {
 
   // Slide the window over the string
   for (let i = k; i < s.length; i++) {
-    // Remove the effect of the leftmost character in the previous window
+    // Remove the effect of the left most character in the previous window
     if (vowels.has(s[i - k])) {
       currentVowelCount--;
     }

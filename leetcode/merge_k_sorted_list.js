@@ -161,7 +161,7 @@ function printList(list) {
   console.log(result.join("->"));
 }
 
-printList(mergedList); // Output: 1->1->2->3->4->4->5->6
+// printList(mergedList); // Output: 1->1->2->3->4->4->5->6
 
 // import heapq
 

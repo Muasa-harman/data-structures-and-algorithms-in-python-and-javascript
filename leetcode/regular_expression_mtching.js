@@ -1,8 +1,8 @@
 // Given an input string s and a pattern p, implement regular expression matching with support for '.'
 //  and '*' where:
 
-// '.' Mathces any single character.
-// '*' Matches  zero or more of the proceding element.
+// '.' Matches any single character.
+// '*' Matches  zero or more of the proceeding element.
 
 // The matching should cover the entire input String(not partial).
 
